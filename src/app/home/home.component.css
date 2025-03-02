@@ -1,0 +1,101 @@
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  height: 20rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  margin-bottom: 6.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+li a:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.content {
+  padding: 0.5rem 0rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  justify-content: center;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left; /* ✅ 왼쪽 정렬 */
+}
+
+.origins,
+.cook-time {
+  text-align: left; /* ✅ 왼쪽 정렬 */
+  width: 100%; /* ✅ 요소가 가득 차도록 */
+}
+
+.origins span {
+  border-radius: 2rem;
+  background-color: whitesmoke;
+  color: grey;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  display: inline-block;
+}
+
+.name,
+.origins,
+.cook-time,
+.price {
+  margin-left: 0.2rem; /* ✅ 왼쪽으로 조금 이동 */
+  text-align: left; /* ✅ 텍스트 왼쪽 정렬 */
+}
+
+.cook-time{
+  font-size: .9rem;
+  flex:3;
+  text-align: right;
+}
+
+.price {
+  color: rgb(58, 57, 57);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left; /* ✅ 가격도 왼쪽 정렬 */
+  margin-left: 0.2rem; /* ✅ 왼쪽 여백 추가 */
+}
+
+.favorite {
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem; /* ✅ 위치 조정 */
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.favorite.not {
+  opacity: 0.5;
+}
+
+img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.product-item-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  width: 100%;
+}
