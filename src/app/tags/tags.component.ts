@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Tag } from '../shared/models/Tag';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,18 +13,15 @@ import { Foods } from '../shared/models/food';
 })
 export class TagsComponent implements OnInit {
   tags: Tag[] = [];
-  filteredFoods: Foods[] = []; // 필터링된 음식 목록 저장
+  @Output() tagSelected = new EventEmitter<string>();
 
   constructor(private fs: FoodService) {}
 
   ngOnInit(): void {
     this.tags = this.fs.getAllTag();
-    // console.log('태그 데이터:', this.tags);
   }
 
   filterByTag(tag: string) {
-    // console.log(`현재 태그 클릭됨: ${tag}`);
-    this.filteredFoods = this.fs.getAllFoodByTag(tag);
-    // console.log('필터링된 foods:', this.filteredFoods);
+    this.tagSelected.emit(tag);
   }
 }

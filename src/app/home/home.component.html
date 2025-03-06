@@ -1,8 +1,7 @@
 <app-search></app-search>
-<app-tags></app-tags>
+<app-tags (tagSelected)="filterByTag($event)"></app-tags>
 
-<!-- <ul *ngIf="foods.length > 0; else noFoodMessage"> -->
-<ul *ngIf="foods.length > 0">
+<ul *ngIf="foods.length > 0; else noFoodMessage">
   <li *ngFor="let food of foods">
     <img [src]="food.imageUrl" alt="food images" />
     <div class="content">
@@ -38,6 +37,6 @@
 </ul>
 
 <!-- 🍽 음식이 없을 때 보여줄 메시지 -->
-<!-- <ng-template #noFoodMessage>
+<ng-template #noFoodMessage>
   <p>😢 선택한 태그에 해당하는 음식이 없습니다.</p>
-</ng-template> -->
+</ng-template>
