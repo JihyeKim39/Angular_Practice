@@ -7,3 +7,10 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
 };
+
+export function getPrerenderParams() {
+  return [
+    { searchItem: 'example1' },
+    { searchItem: 'example2' }
+  ];
+}

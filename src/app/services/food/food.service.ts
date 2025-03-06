@@ -1,17 +1,55 @@
 import { Injectable } from '@angular/core';
 import { Foods } from '../../shared/models/food';
-
+import { Tag } from '../../shared/models/Tag';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodService {
+  constructor() {}
+
+  // getAllFoodByTag(tag: string): Foods[] {
+  //   if (tag == 'All') return this.getAll();
+  //   else return this.getAll().filter((food) => food.tags?.includes(tag));
+  //   //you can write this statement is very simple type lets do it
+  // }
+
+  // getAllFoodByTag(tag:string):Foods[]{
+  //   return tag == "All" ?
+  //   this.getAll():this.getAll().filter(food => food.tags?.includes(tag));
+  // }
+
+  // getAllFoodByTag(tag: string): Foods[] {
+  //   return tag === 'All'
+  //     ? this.getAll()
+  //     : this.getAll().filter((food) => (food.tags ?? []).includes(tag));
+  // }
+  getAllFoodByTag(tag: string): Foods[] {
+    const result = tag === 'All'
+      ? this.getAll()
+      : this.getAll().filter((food) => (food.tags ?? []).includes(tag));
+  
+    console.log("filter tag: ", result); 
+    return result;
+  }
   
 
-  constructor() { }
-
-  getAll():Foods[] {
+  getAllTag(): Tag[] {
     return [
-      { //food.service.ts에서 food 객체 가져옴 
+      { name: 'All', count: 8 },
+      { name: 'curry', count: 1 },
+      { name: 'noodle', count: 3 },
+      { name: 'tea', count: 1 },
+      { name: 'Meat', count: 1 },
+      { name: 'Soup', count: 3 },
+      { name: 'single', count: 2 },
+      { name: 'rice', count: 1 },
+    ];
+  }
+
+  getAll(): Foods[] {
+    return [
+      {
+        //food.service.ts에서 food 객체 가져옴
         id: 1,
         name: 'Tonkatsu curry',
         price: 12,
@@ -20,7 +58,7 @@ export class FoodService {
         origins: ['Japan'],
         star: 4.5,
         imageUrl: 'assets/images/food1.jpg',
-        tags: ['FastFood', 'Tonkatsu curry']
+        tags: ['curry', 'Tonkatsu'],
       },
       {
         id: 2,
@@ -31,7 +69,7 @@ export class FoodService {
         origins: ['Osaka', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food2.jpg',
-        tags: ['Meat', 'rice']
+        tags: ['Meat', 'rice'],
       },
       {
         id: 3,
@@ -42,7 +80,7 @@ export class FoodService {
         origins: ['Shibuya', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food3.jpg',
-        tags: ['chicken', 'single']
+        tags: ['chicken', 'single'],
       },
       {
         id: 4,
@@ -53,7 +91,7 @@ export class FoodService {
         origins: ['Kyoto', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food4.jpg',
-        tags: ['rice', 'single']
+        tags: ['rice', 'single'],
       },
       {
         id: 5,
@@ -64,7 +102,7 @@ export class FoodService {
         origins: ['Korea', 'Asia'],
         star: 3.0,
         imageUrl: 'assets/images/food5.jpg',
-        tags: ['tea', 'health']
+        tags: ['tea', 'health'],
       },
       {
         id: 6,
@@ -75,7 +113,7 @@ export class FoodService {
         origins: ['Kobe', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food6.jpg',
-        tags: ['noddle', 'Soup']
+        tags: ['noodle', 'Soup'],
       },
       {
         id: 7,
@@ -86,7 +124,7 @@ export class FoodService {
         origins: ['Shinjuku', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food7.jpg',
-        tags: ['noddle', 'Soup']
+        tags: ['noodle', 'Soup'],
       },
       {
         id: 8,
@@ -97,7 +135,7 @@ export class FoodService {
         origins: ['Kyoto', 'Japan'],
         star: 3.0,
         imageUrl: 'assets/images/food8.jpg',
-        tags: ['noddle', 'Soup']
+        tags: ['noodle', 'Soup'],
       },
     ];
   }

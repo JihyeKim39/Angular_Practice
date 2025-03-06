@@ -1,20 +1,22 @@
 <app-search></app-search>
+<app-tags></app-tags>
 
-<ul>
+<!-- <ul *ngIf="foods.length > 0; else noFoodMessage"> -->
+<ul *ngIf="foods.length > 0">
   <li *ngFor="let food of foods">
     <img [src]="food.imageUrl" alt="food images" />
     <div class="content">
       <div class="name">
         {{ food.name }}
       </div>
-      <!-- <span class="favorite" [class.not]="!food.favorite">♥</span>  -->
+
       <!-- ⭐ 좋아요 아이콘 -->
       <i
         class="favorite fa-solid fa-star"
         [class.not]="!food.favorite"
         (click)="toggleFavorite(food)"
       >
-      ⭐
+        ⭐
       </i>
 
       <div class="product-item-footer">
@@ -34,3 +36,8 @@
     </div>
   </li>
 </ul>
+
+<!-- 🍽 음식이 없을 때 보여줄 메시지 -->
+<!-- <ng-template #noFoodMessage>
+  <p>😢 선택한 태그에 해당하는 음식이 없습니다.</p>
+</ng-template> -->

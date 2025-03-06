@@ -2,45 +2,55 @@ import { Component, OnInit } from '@angular/core';
 import { FoodService } from '../services/food/food.service';
 import { CommonModule } from '@angular/common';
 import { Foods } from '../shared/models/food';
-import { StarRatingModule } from 'angular-star-rating'; 
+import { StarRatingModule } from 'angular-star-rating';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
+import { TagsComponent } from '../tags/tags.component';
 
 @Component({
   selector: 'app-home',
-  // standalone: true, // ✅ Standalone Component 사용
-  imports: [CommonModule, StarRatingModule,SearchComponent], 
+  standalone: true, // ✅ Standalone Component 사용
+  imports: [CommonModule, StarRatingModule, SearchComponent, TagsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // CUSTOM_ELEMENTS_SCHEMA 추가
 })
 export class HomeComponent implements OnInit {
-  foods: Foods[] = [];
-  rating = 3.5;
+  toggleFavorite(_t12: Foods) {
+    throw new Error('Method not implemented.');
+  }
+  tag: string = '';
+  foods: Foods[] = []; // ✅ 타입을 Foods[]로 명확하게 지정
 
-  constructor(private fs: FoodService, private route :ActivatedRoute ) {}
+  constructor(private route: ActivatedRoute, private fs: FoodService) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      // params['searchItem']이 존재하면 필터링, 없으면 모든 데이터 가져오기
+    this.route.params.subscribe((params) => {
+      this.tag = params['tag'] || '';
       if (params['searchItem']) {
-        this.foods = this.fs.getAll().filter(food =>
-          food.name.toLowerCase().includes(params['searchItem'].toLowerCase())
-        );
+        this.foods = this.fs
+          .getAll()
+          .filter((food) =>
+            food.name.toLowerCase().includes(params['searchItem'].toLowerCase())
+          );
+      } else if (params['tag']) {
+        console.log('search');
+        this.filterByTag(params['tag']); // ✅ 필터링 함수로 처리
       } else {
-        this.foods = this.fs.getAll(); // ✅ 데이터 가져오기
+        this.foods = this.fs.getAll();
+        console.log("check")
+        // this.filterByTag(params['tag']);
       }
-      console.log(this.foods); // 필터링된 foods를 출력
+      // console.log('현재 태그:', this.tag);
+      // console.log('필터링된 foods:', this.foods);
     });
-
-    // 데이터가 제대로 있는지 확인 (로딩 후 출력하도록 위치 변경)
-    // console.log(this.fs.getAll());  // 이 부분은 실제로 데이터를 로드한 후 확인해야 함
   }
 
-  toggleFavorite(food: any) {
-    food.favorite = !food.favorite; // 클릭하면 favorite 값 변경
+  // ✅ 태그 필터링 함수 추가
+  filterByTag(tag: string) {
+    // console.log('현재 태그 클릭됨:', tag);
+    this.foods = [...this.fs.getAllFoodByTag(tag)]; // ✅ 새로운 배열로 할당 (변경 감지)
+    // console.log('필터링된 foods:', this.foods);
   }
 }
-
-export const prerender = false;
