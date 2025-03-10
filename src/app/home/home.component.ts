@@ -7,11 +7,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
 import { TagsComponent } from '../tags/tags.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  standalone: true, // ✅ Standalone Component 사용
-  imports: [CommonModule, StarRatingModule, SearchComponent, TagsComponent],
+  standalone: true, 
+  imports: [CommonModule, StarRatingModule, SearchComponent, TagsComponent, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // CUSTOM_ELEMENTS_SCHEMA 추가
@@ -20,6 +21,7 @@ import { TagsComponent } from '../tags/tags.component';
 export class HomeComponent implements OnInit {
   tag: string = '';
   foods: Foods[] = [];
+food: any;
 
   constructor(private route: ActivatedRoute, private fs: FoodService) {}
 

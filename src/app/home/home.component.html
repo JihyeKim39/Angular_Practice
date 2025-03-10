@@ -1,9 +1,17 @@
 <app-search></app-search>
 <app-tags (tagSelected)="filterByTag($event)"></app-tags>
 
+
 <ul *ngIf="foods.length > 0; else noFoodMessage">
   <li *ngFor="let food of foods">
-    <img [src]="food.imageUrl" alt="food images" />
+    <!-- <img [src]="food.imageUrl" alt="food images" /> -->
+    <img 
+    [src]="food.imageUrl" 
+    alt="food images" 
+    [routerLink]="['/foodpage', food.id]" 
+    style="cursor: pointer;"
+  />
+  
     <div class="content">
       <div class="name">
         {{ food.name }}
@@ -34,6 +42,7 @@
       {{ food.price | currency }}
     </div>
   </li>
+
 </ul>
 
 <!-- 🍽 음식이 없을 때 보여줄 메시지 -->

@@ -7,31 +7,18 @@ import { Tag } from '../../shared/models/Tag';
 export class FoodService {
   constructor() {}
 
-  // getAllFoodByTag(tag: string): Foods[] {
-  //   if (tag == 'All') return this.getAll();
-  //   else return this.getAll().filter((food) => food.tags?.includes(tag));
-  //   //you can write this statement is very simple type lets do it
-  // }
+  getFoodById(id: number): Foods {
+    return this.getAll().find((food) => food.id == id)!;
+  }
 
-  // getAllFoodByTag(tag:string):Foods[]{
-  //   return tag == "All" ?
-  //   this.getAll():this.getAll().filter(food => food.tags?.includes(tag));
-  // }
-
-  // getAllFoodByTag(tag: string): Foods[] {
-  //   return tag === 'All'
-  //     ? this.getAll()
-  //     : this.getAll().filter((food) => (food.tags ?? []).includes(tag));
-  // }
   getAllFoodByTag(tag: string): Foods[] {
-    const result = tag === 'All'
-      ? this.getAll()
-      : this.getAll().filter((food) => (food.tags ?? []).includes(tag));
-  
-    console.log("filter tag: ", result); 
+    const result =
+      tag === 'All'
+        ? this.getAll()
+        : this.getAll().filter((food) => (food.tags ?? []).includes(tag));
+
     return result;
   }
-  
 
   getAllTag(): Tag[] {
     return [

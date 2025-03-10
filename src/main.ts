@@ -1,8 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes'; // ✅ app 폴더 안에 있으므로 수정 필요
+import { appRouter } from './app/app.routes';
+
+// bootstrapApplication(AppComponent, {
+//   providers: [provideRouter(routes)], // ✅ 라우팅 추가
+// }).catch((err) => console.error(err));
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)], // ✅ 라우팅 추가
-}).catch((err) => console.error(err));
+  providers: [
+    appRouter // ✅ 라우터 직접 제공
+  ]
+}).catch(err => console.error(err));
