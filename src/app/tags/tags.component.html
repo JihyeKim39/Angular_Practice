@@ -1,11 +1,9 @@
-<!-- 
-<div *ngIf="tags">
-  <a *ngFor="let tag of tags" [routerLink]="['/tag', tag.name]">
-    {{ tag.name }} {{ tag.count }}
-  </a>
-</div>
- -->
-
- <div *ngFor="let tag of tags">
+ <!-- <div *ngFor="let tag of tags">
   <a (click)="filterByTag(tag.name)">{{ tag.name }} {{ tag.count }}</a>
+</div> -->
+
+<div class="tag-list">
+  <div *ngFor="let tag of tags">
+    <a (click)="filterByTag(tag.name)">{{ tag.name }} ({{ tag.count }})</a>
+  </div>
 </div>

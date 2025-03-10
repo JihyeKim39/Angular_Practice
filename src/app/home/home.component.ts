@@ -16,12 +16,10 @@ import { TagsComponent } from '../tags/tags.component';
   styleUrls: ['./home.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // CUSTOM_ELEMENTS_SCHEMA 추가
 })
+
 export class HomeComponent implements OnInit {
-  toggleFavorite(_t12: Foods) {
-    throw new Error('Method not implemented.');
-  }
   tag: string = '';
-  foods: Foods[] = []; // ✅ 타입을 Foods[]로 명확하게 지정
+  foods: Foods[] = [];
 
   constructor(private route: ActivatedRoute, private fs: FoodService) {}
 
@@ -35,22 +33,19 @@ export class HomeComponent implements OnInit {
             food.name.toLowerCase().includes(params['searchItem'].toLowerCase())
           );
       } else if (params['tag']) {
-        console.log('search');
-        this.filterByTag(params['tag']); // ✅ 필터링 함수로 처리
+        this.filterByTag(params['tag']);
       } else {
         this.foods = this.fs.getAll();
-        console.log("check")
-        // this.filterByTag(params['tag']);
       }
-      // console.log('현재 태그:', this.tag);
-      // console.log('필터링된 foods:', this.foods);
     });
   }
 
-  // ✅ 태그 필터링 함수 추가
   filterByTag(tag: string) {
-    // console.log('현재 태그 클릭됨:', tag);
-    this.foods = [...this.fs.getAllFoodByTag(tag)]; // ✅ 새로운 배열로 할당 (변경 감지)
-    // console.log('필터링된 foods:', this.foods);
+    this.foods = [...this.fs.getAllFoodByTag(tag)];
+  }
+
+  // ✅ 좋아요 기능 구현
+  toggleFavorite(food: Foods) {
+    food.favorite = !food.favorite; // 상태 토글
   }
 }

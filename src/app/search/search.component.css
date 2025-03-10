@@ -6,7 +6,7 @@ div {
 }
 
 div input {
-  border-radius: 2.5rem 0 0 2.5rem;
+  border-radius: 2.5rem 0 0 2.5rem;;
   border: none;
   height: 1.5rem;
   width: 20rem;
@@ -18,11 +18,12 @@ div input {
 }
 
 div button {
-  color: whitesmoke;
+  color: white;
   outline-color: grey;
-  background-color: rgb(226, 71, 71);
+  background-color: red;
   opacity: 0.8;
   outline: none;
+  border-radius: 0 2.5rem 2.5rem 0;;
 }
 
 div button:hover {
