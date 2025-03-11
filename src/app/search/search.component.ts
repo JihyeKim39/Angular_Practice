@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [FormsModule], // ✅ Standalone Component 방식이므로 imports에 추가
+  imports: [FormsModule],
   template: `
     <div>
       <input type="text" placeholder="Search Food" [(ngModel)]="searchItem" />
       <button (click)="search()">Search Food</button>
     </div>
   `,
-  styleUrls: ['./search.component.css'], // ✅ 스타일 유지
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
   searchItem: string = '';
@@ -20,7 +20,6 @@ export class SearchComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    // ✅ URL 파라미터에서 'searchItem' 가져오기 (없으면 빈 문자열)
     this.route.params.subscribe((params) => {
       this.searchItem = params['searchItem'] || '';
     });

@@ -61,9 +61,9 @@ li a:hover {
   text-align: left; /* ✅ 텍스트 왼쪽 정렬 */
 }
 
-.cook-time{
-  font-size: .9rem;
-  flex:3;
+.cook-time {
+  font-size: 0.9rem;
+  flex: 3;
   text-align: right;
 }
 

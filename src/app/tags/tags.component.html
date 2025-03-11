@@ -2,7 +2,10 @@
   <div *ngFor="let tag of tags">
     <a (click)="filterByTag(tag.name)">{{ tag.name }} ({{ tag.count }})</a>
   </div>
+
   <div *ngIf="foodPageTags">
-    <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}"></a>
+    <div *ngFor="let tag of foodPageTags" class="food-tag">
+      <a routerLink="/tag/{{ tag }}" (click)="filterByTag(tag)">{{ tag }}</a>
+    </div>
   </div>
 </div>

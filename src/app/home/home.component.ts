@@ -46,8 +46,8 @@ food: any;
     this.foods = [...this.fs.getAllFoodByTag(tag)];
   }
 
-  // ✅ 좋아요 기능 구현
+
   toggleFavorite(food: Foods) {
-    food.favorite = !food.favorite; // 상태 토글
+    food.favorite = !food.favorite; 
   }
 }

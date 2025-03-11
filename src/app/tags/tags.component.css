@@ -1,17 +1,16 @@
 .tag-list {
   display: flex;
-  gap: 10px; /* 태그 사이 간격 */
-  flex-wrap: wrap; /* 화면이 좁으면 줄 바꿈 */
+  gap: 10px; 
+  flex-wrap: wrap; 
   justify-content: center;
 }
 
 .tag-list div {
-  background-color: red;
+  background-color: antiquewhite; 
   font-weight: bold;
   font-style: italic;
   font-size: .9rem;
-  padding: 5px 10px; /* 내부 여백 */
-  border-radius: 5px; /* 모서리 둥글게 */
-  color: white; /* 글자 색 */
+  padding: 5px 10px; 
+  border-radius: 5px; 
   cursor: pointer;
 }

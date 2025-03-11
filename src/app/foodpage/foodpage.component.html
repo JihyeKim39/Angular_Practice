@@ -1,29 +1,30 @@
-<div class="container">
-  <img [src]="food.imageUrl" [alt]="food.name" (click)="filterTagsByImage()" />
-</div>
+<div class="food-container">
+  <!-- 음식 이미지 -->
+  <div class="container">
+    <img [src]="food.imageUrl" [alt]="food.name" (click)="filterTagsByImage()" />
+  </div>
 
-<div class="details">
-  <div class="header">
-    <span class="name">{{ food.name }}</span>
-    <span class="favorite {{food.favorite ? '' : 'not'}}">
-      ⭐
-    </span>
-  </div>
-  <div class="origins">
-    <span *ngFor="let origin of food.origins">
-      {{ origin }}
-    </span>
-    <div class="tag">
-      <!-- 필터링된 태그만 전달 -->
-      <app-tags [foodPageTags]="filteredTags"></app-tags>
+  <!-- 음식 세부 정보 -->
+  <div class="details">
+    <div class="header">
+      <span class="name">{{ food.name }}</span>
+      <span class="favorite {{ food.favorite ? '' : 'not' }}"> ⭐ </span>
     </div>
+    <div class="origins">
+      <span *ngFor="let origin of food.origins">
+        {{ origin }}
+      </span>
+      <div class="tag">
+        <app-tags [foodPageTags]="filteredTags"></app-tags>
+      </div>
+    </div>
+    <div class="cook-time">
+      <span>Time to cook about ⏰<strong></strong></span>
+      {{ food.cookTime }}
+    </div>
+    <div class="price">
+      {{ food.price | currency }}
+    </div>
+    <button>Add to Cart</button>
   </div>
-  <div class="cook-time">
-    <span>Time to cook about ⏰<strong></strong></span>
-    {{ food.cookTime }}
-  </div>
-  <div class="price">
-    {{ food.price | currency }}
-  </div>
-  <button>Add to Cart</button>
 </div>
