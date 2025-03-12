@@ -36,7 +36,6 @@ export class FoodService {
   getAll(): Foods[] {
     return [
       {
-        //food.service.ts에서 food 객체 가져옴
         id: 1,
         name: 'Tonkatsu curry',
         price: 12,
@@ -61,7 +60,7 @@ export class FoodService {
       {
         id: 3,
         name: 'Chicken Skewers',
-        price: 11,
+        price: 8.6,
         cookTime: '40-50',
         favorite: false,
         origins: ['Shibuya', 'Japan'],
@@ -72,7 +71,7 @@ export class FoodService {
       {
         id: 4,
         name: 'Sushi',
-        price: 11,
+        price: 13.5,
         cookTime: '30-40',
         favorite: false,
         origins: ['Kyoto', 'Japan'],
@@ -83,7 +82,7 @@ export class FoodService {
       {
         id: 5,
         name: 'Green tea set',
-        price: 11,
+        price: 13,
         cookTime: '20-40',
         favorite: false,
         origins: ['Korea', 'Asia'],
@@ -105,7 +104,7 @@ export class FoodService {
       {
         id: 7,
         name: 'Salt Ramen',
-        price: 11,
+        price: 9,
         cookTime: '40-50',
         favorite: false,
         origins: ['Shinjuku', 'Japan'],
@@ -116,7 +115,7 @@ export class FoodService {
       {
         id: 8,
         name: 'Soy sauce ramen',
-        price: 11,
+        price: 11.5,
         cookTime: '40-50',
         favorite: false,
         origins: ['Kyoto', 'Japan'],

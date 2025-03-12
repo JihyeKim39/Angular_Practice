@@ -28,20 +28,20 @@ li a:hover {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  align-items: flex-start;
   justify-content: center;
 }
 
 .name {
   font-size: 1.2rem;
   font-weight: bold;
-  text-align: left; /* ✅ 왼쪽 정렬 */
+  text-align: left;
 }
 
 .origins,
 .cook-time {
-  text-align: left; /* ✅ 왼쪽 정렬 */
-  width: 100%; /* ✅ 요소가 가득 차도록 */
+  text-align: left;
+  width: 100%;
 }
 
 .origins span {
@@ -57,8 +57,8 @@ li a:hover {
 .origins,
 .cook-time,
 .price {
-  margin-left: 0.2rem; /* ✅ 왼쪽으로 조금 이동 */
-  text-align: left; /* ✅ 텍스트 왼쪽 정렬 */
+  margin-left: 0.2rem;
+  text-align: left;
 }
 
 .cook-time {
@@ -71,15 +71,15 @@ li a:hover {
   color: rgb(58, 57, 57);
   font-size: 1.2rem;
   font-weight: bold;
-  text-align: left; /* ✅ 가격도 왼쪽 정렬 */
-  margin-left: 0.2rem; /* ✅ 왼쪽 여백 추가 */
+  text-align: left;
+  margin-left: 0.2rem;
 }
 
 .favorite {
   font-family: Arial, sans-serif;
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem; /* ✅ 위치 조정 */
+  right: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -96,6 +96,6 @@ img:hover {
 .product-item-footer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  align-items: flex-start;
   width: 100%;
 }

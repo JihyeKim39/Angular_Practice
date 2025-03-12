@@ -1,8 +1,8 @@
 .food-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start; 
   justify-content: center;
-  gap: 30px;
+  gap: 30px; 
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -19,7 +19,7 @@
   height: auto;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .details {
@@ -28,30 +28,60 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  border-radius: 3rem;
+  padding-left: 10px;
 }
 
 .header {
+  margin-top: 50px;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 24px;
+  font-size: 38px;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.origins {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .tag {
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
 }
 
 .tag app-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  margin: 0;
 }
 
-.cook-time,
+.cook-time {
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .price {
-  font-size: 18px;
+  font-size: 30px;
   margin-top: 10px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.price::before{
+  content: "Price: ";
+  color:rgb(154, 149, 149)
 }
 
 button {
@@ -62,9 +92,9 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 button:hover {
-  background-color: red;
+  background-color: rgb(202, 45, 45);
 }

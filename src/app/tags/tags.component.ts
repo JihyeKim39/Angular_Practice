@@ -12,8 +12,10 @@ import { FoodService } from '../services/food/food.service';
   styleUrls: ['./tags.component.css'],
 })
 export class TagsComponent implements OnInit {
-  @Input() foodPageTags?: string[]; // foodPageTags를 입력으로 받아옴
-  @Output() tagSelected = new EventEmitter<string>(); // 태그 선택 이벤트
+  @Input() foodPageTags?: string[];
+  @Input()
+  justifyContent:string ='center' 
+  @Output() tagSelected = new EventEmitter<string>(); 
 
   tags: Tag[] = [];
 
@@ -25,9 +27,8 @@ export class TagsComponent implements OnInit {
     }
   }
 
-  // 태그 필터링 메서드 추가
   filterByTag(tagName: string): void {
-    console.log(`Tag clicked: ${tagName}`); // 디버깅용 로그
-    this.tagSelected.emit(tagName); // 부모 컴포넌트로 선택된 태그 전달
+    console.log(`Tag clicked: ${tagName}`); 
+    this.tagSelected.emit(tagName); 
   }
 }

@@ -2,12 +2,14 @@ import { Routes, provideRouter } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TagsComponent } from './tags/tags.component';
 import { FoodpageComponent } from './foodpage/foodpage.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // ✅ 기본 경로
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'search/:searchItem', component: HomeComponent },
-  { path: 'tag/:tag', component: TagsComponent }, // ✅ TagsComponent로 연결
+  { path: 'tag/:tag', component: TagsComponent }, 
+  { path: 'cart-page', component:CartPageComponent},
   {
     path: 'foodpage/:id',
     component: FoodpageComponent

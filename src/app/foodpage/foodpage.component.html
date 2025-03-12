@@ -1,10 +1,8 @@
 <div class="food-container">
-  <!-- 음식 이미지 -->
   <div class="container">
     <img [src]="food.imageUrl" [alt]="food.name" (click)="filterTagsByImage()" />
   </div>
 
-  <!-- 음식 세부 정보 -->
   <div class="details">
     <div class="header">
       <span class="name">{{ food.name }}</span>
@@ -15,7 +13,7 @@
         {{ origin }}
       </span>
       <div class="tag">
-        <app-tags [foodPageTags]="filteredTags"></app-tags>
+        <app-tags [foodPageTags]="filteredTags" justifyContent="start"></app-tags>
       </div>
     </div>
     <div class="cook-time">

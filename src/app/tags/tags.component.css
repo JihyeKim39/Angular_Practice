@@ -3,6 +3,7 @@
   gap: 10px; 
   flex-wrap: wrap; 
   justify-content: center;
+  display: flex;
 }
 
 .tag-list div {
@@ -14,3 +15,4 @@
   border-radius: 5px; 
   cursor: pointer;
 }
+
