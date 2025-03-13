@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Cart } from '../shared/models/Cart';
-import { Foods } from '../shared/models/food';
-import { CartItem } from '../shared/models/CartItem'; 
+import { Cart } from '../../shared/models/Cart';
+import { Foods } from '../../shared/models/food';
+import { CartItem } from '../../shared/models/CartItem';
+
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private cart: Cart = new Cart();
+items: any;
 
   addToCart(food: Foods): void {
     let cartItem = this.cart.items.find((item) => item.food.id === food.id);

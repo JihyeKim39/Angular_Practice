@@ -9,8 +9,10 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search/:searchItem', component: HomeComponent },
   { path: 'tag/:tag', component: TagsComponent }, 
-  { path: 'cart-page', component:CartPageComponent},
   {
+    path: 'cart-page',
+    loadComponent: () => import('./cart-page/cart-page.component').then(m => m.CartPageComponent) // ✅ standalone 컴포넌트는 이렇게 불러와야 함
+  },  {
     path: 'foodpage/:id',
     component: FoodpageComponent
   },
