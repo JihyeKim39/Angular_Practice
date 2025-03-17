@@ -1,21 +1,26 @@
 <ul>
   <li *ngFor="let cartItem of cartItems">
     <div>
-      <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name"/>
+      <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
     </div>
     <div>
-      <a routerLink="/food/{{cartItem.food.id}}">
-        {{cartItem.food.name}}
+      <a routerLink="/food/{{ cartItem.food.id }}">
+        {{ cartItem.food.name }}
       </a>
     </div>
     <div>
-      <select #quantitySelect (change)="changeQuantity(cartItem.food.id, +quantitySelect.value)">
-        <option *ngFor="let num of [1,2,3,4,5,6,7,8]" 
-                [value]="num"
-                [selected]="num === cartItem.quantity">
-          {{num}}
+      <select
+        #quantitySelect
+        (change)="changeQuantity(cartItem.food.id, +quantitySelect.value)"
+      >
+        <option
+          *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8]"
+          [value]="num"
+          [selected]="num === cartItem.quantity"
+        >
+          {{ num }}
         </option>
       </select>
     </div>
   </li>
-</ul> 
+</ul>
